@@ -23,10 +23,10 @@ struct locks {
 static thread_func medium_thread_func;
 static thread_func high_thread_func;
 
-void test_priority_donate_nest(void) {
-  struct lock a, b;
-  struct locks locks;
+static struct lock a, b;
+static struct locks locks;
 
+void test_priority_donate_nest(void) {
   /* This test does not work with the MLFQS. */
   ASSERT(!thread_mlfqs);
 

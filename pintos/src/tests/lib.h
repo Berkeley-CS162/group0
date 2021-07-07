@@ -34,7 +34,7 @@ void fail(const char*, ...) PRINTF_FORMAT(1, 2) NO_RETURN;
   } while (0)
 
 void push_values_to_fpu(int* values, int n);
-bool pop_and_check_fpu(int* values, int n);
+bool pop_values_from_fpu(int* values, int n);
 
 void shuffle(void*, size_t cnt, size_t size);
 

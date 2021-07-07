@@ -4,4 +4,4 @@ Functionality of features that require the kernel:
 5	fp-kasm
 
 - Test floating point robustness
-2	fp-kernel
+2	fp-kinit

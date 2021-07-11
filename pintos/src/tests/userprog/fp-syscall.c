@@ -55,7 +55,7 @@ void test_main(void) {
   float e_res_flt;
   ASSERT(sizeof(float) == sizeof(int));
   memcpy(&e_res_flt, &e_res, sizeof(int));
-  double e_res_dbl = (double) e_res_flt;
+  double e_res_dbl = (double)e_res_flt;
   if (abs(e_res_dbl - E_VAL) < TOL) {
     msg("Kernel computation successful");
     exit(162);

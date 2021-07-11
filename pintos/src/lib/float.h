@@ -6,13 +6,16 @@
 
 /* Pushes integer num to the FPU */
 static inline void fpu_push(int num) {
-  asm volatile ("pushl %0; flds (%%esp); addl $4, %%esp" : : "m"(num));
+  asm volatile("pushl %0; flds (%%esp); addl $4, %%esp" : : "m"(num));
 }
 
 /* Pops integer from the FPU */
 static inline int fpu_pop() {
   int val;
-  asm volatile ("subl $4, %%esp; fstps (%%esp); mov (%%esp), %0; addl $4, %%esp" : "=r"(val) : : "memory");
+  asm volatile("subl $4, %%esp; fstps (%%esp); mov (%%esp), %0; addl $4, %%esp"
+               : "=r"(val)
+               :
+               : "memory");
   return val;
 }
 

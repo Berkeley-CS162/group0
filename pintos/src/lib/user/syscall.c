@@ -115,4 +115,4 @@ bool isdir(int fd) { return syscall1(SYS_ISDIR, fd); }
 
 int inumber(int fd) { return syscall1(SYS_INUMBER, fd); }
 
-double compute_e(int n) { return (double) syscall1f(SYS_COMPUTE_E, n); }
+double compute_e(int n) { return (double)syscall1f(SYS_COMPUTE_E, n); }

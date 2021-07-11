@@ -126,7 +126,8 @@ static const struct integer_base base_d = {10, "0123456789", 0, 3};
 static const struct integer_base base_o = {8, "01234567", 0, 3};
 static const struct integer_base base_x = {16, "0123456789abcdef", 'x', 4};
 static const struct integer_base base_X = {16, "0123456789ABCDEF", 'X', 4};
-static const int powers[16] = {0, 10, 100, 1000, 10000, 100000, 1000000, 10000000, 100000000, 1000000000};
+static const int powers[16] = {0,      10,      100,      1000,      10000,
+                               100000, 1000000, 10000000, 100000000, 1000000000};
 
 static const char* parse_conversion(const char* format, struct printf_conversion*, va_list*);
 static void format_integer(uintmax_t value, bool is_signed, bool negative,
@@ -299,9 +300,9 @@ void __vprintf(const char* format, va_list args, void (*output)(char, void*), vo
 
         // Convert argument into <first>.<rest>
         double d = va_arg(args, double);
-        int first = (int) d;
+        int first = (int)d;
         double rem = (d - first) * powers[c.precision];
-        int rest = (int) rem;
+        int rest = (int)rem;
 
         // Print before the decimal
         // Use arbitrary precision length

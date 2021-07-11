@@ -18,7 +18,7 @@ struct fpu_args {
 
 /* Pushes to the FPU its argument and ups a semaphore */
 void fpu_push_up(void* args) {
-  struct fpu_args* fpuargs = (struct fpu_args*) args;
+  struct fpu_args* fpuargs = (struct fpu_args*)args;
   fpu_push(fpuargs->push_val);
   sema_up(&fpuargs->push_done);
 }
@@ -31,7 +31,7 @@ int fpu_push_pop(int x) {
   struct fpu_args fpuargs;
   fpuargs.push_val = x + 1;
   sema_init(&fpuargs.push_done, 0);
-  thread_create("fpu-pusher", PRI_DEFAULT, &fpu_push_up, (void*) &fpuargs);
+  thread_create("fpu-pusher", PRI_DEFAULT, &fpu_push_up, (void*)&fpuargs);
   sema_down(&fpuargs.push_done);
 
   return fpu_pop();

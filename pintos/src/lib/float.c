@@ -4,9 +4,7 @@
 int factorial(int);
 
 /* Computes the absolute value of x, |x| */
-double abs(double x) {
-  return x > 0 ? x : -x;
-}
+double abs(double x) { return x > 0 ? x : -x; }
 
 /* Computes n factorial, for any n >= 0 */
 int factorial(int n) {
@@ -32,7 +30,7 @@ double sum_to_e(int n) {
    syscall interface expects */
 int sys_sum_to_e(int n) {
   double res = sum_to_e(n);
-  float conv_res = (float) res;
+  float conv_res = (float)res;
   int ret_val;
   ASSERT(sizeof(float) == sizeof(int));
   memcpy(&ret_val, &conv_res, sizeof(float));
